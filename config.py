@@ -47,10 +47,16 @@ REQUEST_TIMEOUT = 60
 # ========== FAISS НАСТРОЙКИ ==========
 # Путь к индексному файлу FAISS (векторная база данных)
 BASE_DIR = Path(__file__).parent
-FAISS_INDEX_PATH = BASE_DIR / "index.faiss"
+# FAISS_INDEX_PATH = BASE_DIR / "index.faiss"
+
+FAISS_CACHE_DIR = BASE_DIR / "faiss_cache"
+FAISS_CACHE_DIR.mkdir(exist_ok=True)
 
 # Путь к файлу с метаданными (тексты документов)
-FAISS_METADATA_PATH = BASE_DIR / "metadata.json"
+# FAISS_METADATA_PATH = BASE_DIR / "metadata.json"
+
+FAISS_INDEX_PATH = FAISS_CACHE_DIR / "index.faiss"
+FAISS_METADATA_PATH = FAISS_CACHE_DIR / "metadata.json"
 
 # Путь к директории с документами для индексации
 DOCS_PATH = BASE_DIR / "data" / "docs"
